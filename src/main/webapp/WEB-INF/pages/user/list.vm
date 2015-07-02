@@ -1,0 +1,29 @@
+<div>
+    <h2><a href="add">添加用户</a></h2>
+    #if ($msg)
+        <h3>$msg</h3>
+    #else
+        <h3>无法显示msg</h3>
+    #end
+
+    <h1>显示后端传来的对象</h1>
+    <h2>${x.username}</h2>
+    <h2>${x.password}</h2>
+    <hr/>
+
+    <h1>显示后端的一个列表的每个对象</h1>
+    #foreach($books in $x.books)
+        <h2>$books.bookName</h2>
+        <h2>$books.price</h2>
+    #end
+
+    －－－－－－
+
+    <c:forEach items="${users}" var="um">
+        <p>账号：$!{um.value.username}  密码：$!{um.value.password} <a href="${um.key}">查看</a> | <a
+                href="${um.key}/update">修改</a></p>
+    </c:forEach>
+    －－－－－－
+    <hr/>
+    $!{message}
+</div>
