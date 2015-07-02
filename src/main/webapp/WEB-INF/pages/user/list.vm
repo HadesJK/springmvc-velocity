@@ -11,18 +11,19 @@
     <h2>${x.password}</h2>
     <hr/>
 
-    <h1>显示后端的一个列表的每个对象</h1>
+    <h1>迭代List</h1>
     #foreach($books in $x.books)
         <h2>$books.bookName</h2>
         <h2>$books.price</h2>
     #end
 
     －－－－－－
-
-    <c:forEach items="${users}" var="um">
-        <p>账号：$!{um.value.username}  密码：$!{um.value.password} <a href="${um.key}">查看</a> | <a
-                href="${um.key}/update">修改</a></p>
-    </c:forEach>
+    <h2>迭代Map</h2>
+    #foreach($user in $users.entrySet())
+        <p>账号：$!{user.value.username}  密码：$!{user.value.password}
+            <a href="${user.key}">查看</a> |
+            <a href="${user.key}/update">修改</a></p>
+    #end
     －－－－－－
     <hr/>
     $!{message}

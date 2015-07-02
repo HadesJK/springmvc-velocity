@@ -36,13 +36,13 @@ public class UserController {
 
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public String list(Model model) {
-        model.addAttribute("users", users);
-        model.addAttribute("msg", "Hello jql.");
         User x = new User("x", "ql");
         List<Book> books = x.getBooks();
         for (int i =0; i < 6; i ++) {
             books.add(new Book("hades" + i, i * 0.3));
         }
+        model.addAttribute("users", users);
+        model.addAttribute("msg", "Hello jql.");
         model.addAttribute("x", x);
         System.out.println("user/users");
         return "user/list";
